@@ -1,0 +1,1 @@
+# homepage-itzfizz-smooth-scroll-mobile-only
