@@ -1,0 +1,2450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.css">
+</head>
+
+<body class="scroll-container">
+    <style>
+        @font-face {
+            font-family: "Hempa Sans" !important;
+
+            src: url("https://itzfizzdigital.b-cdn.net/UniteaSans-Regular.ttf");
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        span {
+            font-family: 'UniteaSans Regular Font' !important;
+        }
+
+        :root {
+            --card-height: 40vw;
+            --card-margin: 4vw;
+            --card-top-offset: 1em;
+            --numcards: 4;
+            --outline-width: 0px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #fff355;
+            border: 2px solid #f49339;
+            border-radius: 50%;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Hempa Sans" !important;
+            overflow-x: hidden !important;
+            z-index: 50 !important;
+            position: relative;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 2000ms;
+        }
+
+        .spacer {
+            background-color: #fff355;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        /* Section 1 */
+        .img-10x {
+            position: absolute;
+            width: 100px !important;
+            margin-left: -14px !important;
+            margin-top: -14px;
+        }
+
+        .curve-arrow {
+            position: absolute;
+            width: 200px;
+            margin-top: -52px;
+            margin-left: 65px;
+        }
+
+        .Digital-underline {
+            position: absolute;
+            width: 650px;
+            margin-top: 55px;
+            margin-left: -40.5vw;
+        }
+
+        .homepagesection1 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/grid.png");
+            background-size: cover;
+            background-position: center;
+            height: 150vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: -8vh;
+
+            > h1 {
+                width: 60%;
+                font-size: 48px;
+                font-weight: 500;
+                line-height: 62px;
+                letter-spacing: 2px;
+                position: relative;
+            }
+
+            > a button {
+                background-color: #fff355;
+                padding-inline: 50px;
+                padding-block: 10px;
+                border-radius: 1000px;
+                border: none;
+                filter: drop-shadow(4px 4px black);
+                color: #161616;
+                margin-top: 5vh;
+                letter-spacing: 0.455px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+
+        .video-heroSection {
+            top: 0;
+            margin-left: -0.31vw;
+            /*width: 45.5vw;*/
+            height: 60vh;
+            object-fit: contain;
+            border: 2px solid transparent;
+        }
+
+        .herophoto {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            mix-blend-mode: multiply;
+            width: 75vw;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 4000ms;
+            position: relative;
+        }
+
+        .herobackdrop1 {
+            position: absolute;
+            left: 0;
+            top: 30vh;
+            max-height: 60vh;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 4000ms;
+        }
+
+        .herobackdrop2-1 {
+            position: absolute;
+            right: 0;
+            z-index: 1000;
+            bottom: 0;
+            max-height: 60vh;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 4000ms;
+        }
+
+        .growth {
+            position: relative;
+            background-color: #fff355;
+            border-radius: 1000px;
+            padding: 0px 0px 0px 10px;
+            margin-right: 3px;
+            border: 2px solid black;
+            filter: drop-shadow(4px 4px black);
+            margin-right: 10px;
+
+            > img {
+                position: absolute;
+                width: 100px;
+            }
+        }
+
+        /* Infinite Scroll  */
+        .slider-mobile {
+            display: none;
+            visibility: collapse;
+        }
+
+        .sliding-img {
+            width: 10vw;
+            aspect-ratio: 1;
+            object-fit: contain;
+            animation: scroll 60s linear infinite;
+        }
+
+        .sliding-img2 {
+            width: 10vw;
+            aspect-ratio: 1;
+            object-fit: contain;
+            animation: scrollto 60s infinite;
+        }
+
+        .slide-track {
+            width: 100vw;
+            display: flex;
+            gap: 3em;
+            overflow: hidden;
+        }
+
+        .slider {
+            background-color: #fff355;
+            padding: 3em 0em 0em 0em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slider-content {
+            width: 20vw;
+            padding: 0 2vw;
+        }
+
+        .slider-content h5 {
+            font-size: 2vw;
+            /* color: #bfb425; */
+            color: #5c5930;
+            font-weight: 600;
+            font-family: 'UniteaSans Regular Font' !important;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translatex(-1000%)
+            }
+        }
+
+        @keyframes scrollto {
+            0% {
+                transform: translateX(-1000%);
+            }
+
+            100% {
+                transform: translatex(0)
+            }
+        }
+
+
+        /* <!-- Section 2 --> */
+        .homepagesection2,
+        .section-3 {
+            position: relative;
+            width: 100vw;
+        }
+
+        .homepagesection2 .page-1 {
+            width: 100vw;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            z-index: -1;
+            background-color: #fff355;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .homepagesection2 .page-2,
+        .section-3 .mobile-page-2 {
+            position: sticky;
+            overflow: hidden;
+            width: 100vw;
+            height: 120vh;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            background-color: white;
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/grid.png");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(20px);
+        }
+
+        .page1waves {
+            position: absolute;
+            width: 100%;
+            top: 40px;
+        }
+
+        .video-container {
+            max-height: 50vh;
+            margin-top: -30vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .vid {
+            background-color: white;
+            width: 50%;
+            height: fit-content;
+            border-radius: 30px;
+        }
+
+        .homepagesection2 .background-circle {
+            width: 50px;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Background%20Circle.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .section-3 .mobile-background-circle {
+            width: 90vw;
+            height: 90vh;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002606.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .homepagesection2 .animation-cards,
+        .section-3 .mobile-animation-cards {
+            padding-top: 250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateX(150vw);
+        }
+
+        .homepagesection2 .cards,
+        .section-3 .cards {
+            width: 300px;
+            height: 455px;
+            margin: 0 15px 0 15px;
+            border-radius: 15px;
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002609.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            mix-blend-mode: multiply;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .service-vid {
+            width: 250px !important;
+            margin-top: 5vh !important;
+            margin-left: 1.5vw !important;
+            object-fit: cover !important;
+        }
+
+        .service-vidM {
+            width: 55.5vw !important;
+            margin-top: 7vh !important;
+            margin-left: 7.5vw !important;
+            object-fit: cover;
+            margin-bottom: 1vh !important;
+
+        }
+
+        .social-vid {
+            width: 55.5vw !important;
+            margin-top: 6vh !important;
+            margin-left: 7.5vw !important;
+            object-fit: cover;
+            margin-bottom: 2vh !important;
+        }
+
+        .cards-heading {
+            margin-top: -2vh !important;
+            font-size: clamp(10px, 24px, 400px);
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 0.31vw !important;
+        }
+
+        .cards-para {
+            font-size: clamp(10px, 14px, 300px);
+            font-weight: 400;
+            text-align: center;
+            width: 260px;
+        }
+
+        /* section-3 */
+        .section-3 {
+            visibility: collapse;
+            display: none;
+        }
+
+        /* <!-- Section 4 --> */
+        .tile-tap-icon {
+            display: none;
+        }
+
+        .homepagesection4 {
+            contain: paint;
+            text-align: center;
+            background-color: #fff355;
+            position: relative;
+            padding-bottom: 200px;
+            padding-top: 50px;
+
+            > h2 {
+                position: relative;
+                font-family: 'UniteaSans Regular Font' !important;
+                padding-block: 50px;
+                z-index: 2;
+                color: #000;
+                font-size: 100px !important;
+                font-style: normal;
+                font-weight: 400;
+                letter-spacing: 2px;
+            }
+        }
+
+        .black-rings {
+            width: 132px !important;
+            top: 10px;
+            left: 62%;
+            z-index: -9;
+            position: absolute;
+        }
+
+        .experienceImg {
+            position: relative;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 4000ms;
+
+            > img {
+                width: 211px !important;
+                top: -34px;
+                left: 351px;
+                z-index: -9;
+                position: absolute;
+            }
+        }
+
+        .web {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 4000ms;
+        }
+
+        .section3backdrop1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px !important;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 4000ms;
+        }
+
+        .section3backdrop2 {
+            position: absolute;
+            top: 220px;
+            right: 0;
+            width: 100px !important;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 4000ms;
+        }
+
+        .companytilescontainer {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .cursorImage {
+            filter: drop-shadow(4px 4px black);
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 3px solid black;
+            width: 625px !important;
+            border-radius: 42px;
+            z-index: 9999 !important;
+
+        }
+
+        .tiles {
+            cursor: none;
+            opacity: 0.3;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid black;
+            height: 150px;
+            width: 35vw;
+            position: relative;
+
+            > h5 {
+                z-index: 2;
+                font-size: 16px !important;
+            }
+
+            > p {
+                z-index: 2;
+                text-align: left;
+                font-size: 14px !important;
+            }
+        }
+
+        .tiles:nth-last-child(1) {
+            border-bottom: none;
+        }
+
+        .activetile {
+            opacity: 1;
+            z-index: 9999 !important;
+        }
+
+        .cursor {
+            --size: 8px;
+            height: var(--size);
+            width: var(--size);
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%) rotate(8deg);
+
+        }
+
+        .cursor.cursor-shadow {
+            transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s,
+                background-color 0.2s, border-color 0.2s;
+            transition-timing-function: ease-out;
+            z-index: 9999 !important;
+
+        }
+
+        .cursor.cursor-dot.activetile-1,
+        .cursor.cursor-dot.activetile-2,
+        .cursor.cursor-dot.activetile-3,
+        .cursor.cursor-dot.activetile-4,
+        .cursor.cursor-dot.activetile-5,
+        .cursor.cursor-dot.activetile-6,
+        .cursor.cursor-dot.activetile-7,
+        .cursor.cursor-dot.activetile-8,
+        .cursor.cursor-dot.activetile-9,
+        .cursor.cursor-dot.activetile-10,
+        .cursor.cursor-dot.activetile-11,
+        .cursor.cursor-dot.activetile-12,
+        .cursor.cursor-dot.activetile-13,
+        .cursor.cursor-dot.activetile-14,
+        .cursor.cursor-dot.activetile-15,
+        cursor.cursor-dot.activetile-16 {
+            opacity: 0;
+
+        }
+
+        .cursor-shadow.activetile-1,
+        .cursor-shadow.activetile-2,
+        .cursor-shadow.activetile-3,
+        .cursor-shadow.activetile-4,
+        .cursor-shadow.activetile-5,
+        .cursor-shadow.activetile-6,
+        .cursor-shadow.activetile-7,
+        .cursor-shadow.activetile-8,
+        .cursor-shadow.activetile-9,
+        .cursor-shadow.activetile-10,
+        .cursor-shadow.activetile-11,
+        .cursor-shadow.activetile-12,
+        .cursor-shadow.activetile-13,
+        .cursor-shadow.activetile-14,
+        .cursor-shadow.activetile-15,
+        .cursor-shadow.activetile-16 {
+            --size: 130px;
+            border-width: 0;
+            background-color: transparent;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px;
+            z-index: 9999 !important;
+        }
+
+        .cursor-shadow.activetile-1 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002825.png");
+
+        }
+
+        .cursor-shadow.activetile-2 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002826.png");
+
+        }
+
+        .cursor-shadow.activetile-3 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002829.png");
+        }
+
+        .cursor-shadow.activetile-4 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002830.png");
+        }
+
+        .cursor-shadow.activetile-5 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002827.png");
+        }
+
+        .cursor-shadow.activetile-6 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002831.png");
+        }
+
+        .cursor-shadow.activetile-7 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002833.png");
+        }
+
+        .cursor-shadow.activetile-8 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002834.png");
+        }
+
+        .cursor-shadow.activetile-9 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002835.png");
+        }
+
+        .cursor-shadow.activetile-10 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002828.png");
+        }
+
+        .cursor-shadow.activetile-11 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002837.png");
+        }
+
+        .cursor-shadow.activetile-12 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002832.png");
+        }
+
+        .cursor-shadow.activetile-13 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002838.png");
+        }
+
+        .cursor-shadow.activetile-14 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002839.png");
+        }
+
+        .cursor-shadow.activetile-15 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002836.png");
+        }
+
+        .cursor-shadow.activetile-16 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000002840.png");
+        }
+
+        /* HOMEPAGESECTION 5 */
+        .homepagesection5 {
+            background-color: #fff355;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        .homepagesection5-desc {
+            position: sticky !important;
+            top: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            transform: rotate(-2deg) translate(-20px, -50px);
+            width: 106vw;
+            height: 115px !important;
+
+        }
+
+        .scrollText {
+            display: flex;
+            animation: scrollText 8s infinite linear;
+            white-space: nowrap;
+
+        }
+
+        .descContainer {
+            white-space: nowrap;
+            display: inline-flex;
+
+
+            > h6 {
+                margin-left: 100px;
+                font-size: 100px !important;
+                font-weight: 300;
+                font-family: 'UniteaSans Regular Font' !important;
+            }
+        }
+
+        @keyframes scrollText {
+            from {
+                transform: translateX(0%);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .homepagesection5-cards #card_1 {
+            --index: 1 !important;
+            transform: rotate(2deg);
+        }
+
+        .homepagesection5-cards #card_2 {
+            --index: 2 !important;
+            transform: rotate(-2deg);
+        }
+
+        .homepagesection5-cards #card_3 {
+            --index: 3 !important;
+            transform: rotate(3deg);
+        }
+
+        .homepagesection5-cards #card_4 {
+            --index: 4 !important;
+            transform: rotate(-3deg);
+        }
+
+        .homepagesection5-cards #card_5 {
+            --index: 5 !important;
+            transform: rotate(2deg);
+        }
+
+        .homepagesection5-cards #card_6 {
+            --index: 6 !important;
+            transform: rotate(-2deg);
+        }
+
+        .homepagesection5-cards #card_7 {
+            --index: 7 !important;
+            transform: rotate(3deg);
+        }
+
+        .homepagesection5-cards #card_8 {
+            --index: 8 !important;
+            transform: rotate(-3deg);
+        }
+
+        .homepagesection5-cards #card_9 {
+            --index: 9 !important;
+            transform: rotate(2deg);
+        }
+
+        .homepagesection5-cards #card_10 {
+            --index: 10 !important;
+            transform: rotate(-2deg);
+        }
+
+        .homepagesection5-cards #card_11 {
+            --index: 11 !important;
+            transform: rotate(3deg);
+        }
+
+        .homepagesection5-cards #card_12 {
+            --index: 10 !important;
+            transform: rotate(-2deg);
+        }
+
+        .homepagesection5-cards #card_13 {
+            --index: 11 !important;
+            transform: rotate(3deg);
+        }
+
+        .homepagesection5-cards .card {
+            position: sticky !important;
+            top: 100px;
+            padding-top: calc(var(--index) * var(--card-top-offset));
+        }
+
+        .homepagesection5-cards {
+            width: 50vw;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .homepagesection5-cards #cards {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(var(--numcards), var(--card-height));
+            gap: var(--card-margin);
+        }
+
+        .homepagesection5-cards .card__content {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/paper.png");
+            backdrop-filter: blur(6px);
+            border: 2px solid black;
+            border-radius: 1em;
+        }
+
+        .homepagesection5-cards .card__content>figure {
+            padding: 25px;
+        }
+
+        .homepagesection5-cards .card__content>figure>img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* HOMEPAGESECTION 6 */
+        .homepagesection6 {
+            background-image: url("https://itzfizzdigital.b-cdn.net/homepage%20assets/paper.png");
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 250px;
+            position: relative;
+            contain: paint;
+            transition: all cubic-bezier(0.19, 1, 0.2, 1) 2000ms;
+        }
+
+        .s6bd2 {
+            position: absolute;
+            right: 0;
+            top: -40px;
+            width: 200px;
+        }
+
+        .s6bd3 {
+            position: absolute;
+            left: 0;
+            bottom: 400px;
+            width: 300px;
+        }
+
+        .homepagesection6 .pinned-div {
+            top: 0;
+            position: sticky;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* transition: all cubic-bezier(0.95, 0.03, 0.2, 1) 1000ms; */
+            transition: all ease 1000ms;
+
+        }
+
+        .homepagesection6 .pinned-content {
+            transition: all 0.4s ease-in-out;
+
+            > p {
+                position: relative;
+                text-align: center;
+                width: 40vw;
+                font-size: 50px;
+                transition: all cubic-bezier(0.19, 1, 0.2, 1) 2000ms;
+                font-family: 'UniteaSans Regular Font' !important;
+
+
+            }
+        }
+
+        .section6-text {
+            position: relative;
+        }
+
+        .section6backdrop {
+            position: absolute;
+            width: 500px;
+            top: -70px;
+            left: -77px;
+        }
+
+        .homepagesection6 .floatingcontent {
+            margin-top: 10vh;
+            width: 60vw;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .homepagesection6 .card {
+            width: 350px;
+            height: 400px;
+        }
+
+        .homepagesection6 .card:nth-child(odd) {
+            transform: rotate(-20deg) translateX(-25vw);
+        }
+
+        .homepagesection6 .card:nth-child(even) {
+            transform: rotate(20deg) translateX(25vw);
+        }
+
+        .mobilepage-1 {
+            height: 45vh;
+            background-color: #fff355;
+
+
+        }
+
+        .mobilevideo-container {
+            height: 45vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vidM {
+            width: 95vw;
+            object-fit: contain;
+            border-radius: 2%;
+        }
+
+        .mobile-page-2 {
+            position: relative;
+        }
+
+        .bg-yellow-heading {
+            position: absolute;
+            left: 3.5%;
+            top: 0.5%;
+            text-align: center;
+
+            > .secondary-heading {
+                font-size: 4vw;
+                font-family: "Hempa Sans" !important;
+            }
+
+            > .primary-heading {
+                font-size: 6vw;
+                font-family: "Hempa Sans" !important;
+            }
+
+        }
+
+        @media screen and (min-device-width: 250px) and (max-device-width: 760px) {
+            body {
+                overflow-x: hidden !important;
+            }
+
+            /* Section 1 */
+            .homepagesection1 {
+                overflow-x: hidden !important;
+                width: 100%;
+                height: 85vh;
+                padding-top: 10vh;
+
+                > h1 {
+                    width: 100%;
+                    font-size: 26px !important;
+                    line-height: 1.5em;
+                    padding: 0vw 1vw 0vw 2vw;
+                }
+            }
+
+            .herophoto {
+                width: 80%;
+                font-size: 20px;
+                height: fit-content;
+                z-index: 41;
+            }
+
+            .video-heroSection {
+                height: max-content;
+                width: 80vw;
+                padding: 4vh 0;
+                z-index: 99;
+                z-index: 100;
+            }
+
+            .herobackdrop1 {
+                top: 45vh;
+                height: 30vh !important;
+            }
+
+            .herobackdrop2-1 {
+                right: -5%;
+                bottom: 0vh;
+                height: 40vh !important;
+                z-index: 1;
+            }
+
+            .img-10x {
+                visibility: hidden;
+                display: none;
+            }
+
+            .Digital-underline {
+                visibility: hidden;
+                display: none;
+            }
+
+            .curve-arrow {
+                visibility: hidden;
+                display: none;
+            }
+
+            /* Infinite scroll */
+            .slider-mobile {
+                display: flex;
+                visibility: visible;
+            }
+
+            .sliding-img,
+            .sliding-img2 {
+                width: 25vw;
+                aspect-ratio: 1;
+                object-fit: contain;
+                animation: scroll 30s linear infinite;
+            }
+
+            .slide-track {
+                gap: 1em;
+            }
+
+            .slider {
+                background-color: #fff355;
+                padding: 1em 0em 0em 0em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .slider-content {
+                width: 100vw;
+
+            }
+
+            .slider-content h5 {
+                font-size: 6vw;
+                text-align: center;
+                font-weight: 400;
+                color: #161616;
+                text-transform: capitalize;
+            }
+
+            /* Section 2 */
+            .mobilepage-1 {
+                height: 30vh;
+                background-color: #fff355;
+
+            }
+
+            .mobilevideo-container {
+                height: 30vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+            .homepagesection2 {
+                visibility: collapse !important;
+                display: none;
+            }
+
+            .cards-heading {
+                font-size: clamp(10px, 16px, 400px);
+                font-weight: 600;
+                text-align: center;
+                margin-top: -2vh;
+            }
+
+            .cards-para {
+                font-size: clamp(10px, 12px, 200px);
+                font-weight: 400;
+                text-align: center;
+                width: 200px;
+            }
+
+            /* section-3 */
+            .section-3 {
+                visibility: visible;
+                display: block;
+            }
+
+            .section-3 .cards {
+                width: 70vw;
+                height: 60vh;
+            }
+
+            .section-3 .mobile-animation-cards {
+                padding-top: 0px;
+                justify-content: center;
+            }
+
+            .section-3 .mobile-animation-cards {
+                transform: translateX(155vw);
+            }
+
+            .mobile-page-2 {
+                height: fit-content;
+                margin-top: 0;
+                transform: translateY(0px);
+
+            }
+
+            .section-3 .mobile-background-circle {
+                width: 250vw;
+            }
+
+            /* ========================= */
+            /* Section 4 */
+            .tile-tap-icon {
+                position: absolute !important;
+                bottom: -15% !important;
+                left: 0% !important;
+                width: 75px !important;
+                mix-blend-mode: multiply !important;
+                z-index: 99 !important;
+                display: block !important;
+                object-fit: contain !important;
+            }
+
+            .homepagesection4 {
+                width: 100%;
+                padding-bottom: 100px;
+                padding-top: 10px;
+                margin-top: -10vh !important;
+
+                > h2 {
+                    font-size: 60px !important;
+                    font-weight: 400;
+                    padding-block: 25px;
+                    z-index: 99;
+                    line-height: 1em;
+                }
+            }
+
+            .companytilescontainer {
+                align-items: center !important;
+                flex-direction: column;
+            }
+
+            .cursorImage {
+                width: 90vw !important;
+            }
+
+            .tiles {
+                gap: 20px;
+                width: 85vw !important;
+                height: 100px;
+                opacity: 1;
+
+                > h5 {
+                    font-size: 12px !important;
+                    opacity: 1;
+                    color: #161616 !important;
+                }
+
+                > p {
+                    font-size: 10px !important;
+                    opacity: 1;
+                    color: #161616 !important;
+
+                }
+            }
+
+            .section3backdrop1 {
+                width: 50px !important;
+                z-index: -1;
+            }
+
+            .section3backdrop2 {
+                width: 80px !important;
+                z-index: -1;
+            }
+
+            .black-rings {
+                width: 100px !important;
+                display: none;
+            }
+
+            .experienceImg img {
+                width: 160px !important;
+                z-index: -1;
+                margin-top: -6vh;
+            }
+
+            .cursor-shadow.activetile-1,
+            .cursor-shadow.activetile-2,
+            .cursor-shadow.activetile-3,
+            .cursor-shadow.activetile-4,
+            .cursor-shadow.activetile-5,
+            .cursor-shadow.activetile-6,
+            .cursor-shadow.activetile-7,
+            .cursor-shadow.activetile-8,
+            .cursor-shadow.activetile-9,
+            .cursor-shadow.activetile-10,
+            .cursor-shadow.activetile-11,
+            .cursor-shadow.activetile-12,
+            .cursor-shadow.activetile-13,
+            .cursor-shadow.activetile-14,
+            .cursor-shadow.activetile-15,
+            .cursor-shadow.activetile-16 {
+                --size: 100px;
+                z-index: 9999 !important;
+            }
+
+            /* section 5 */
+            .homepagesection5 {
+                width: 100vw;
+                padding-bottom: 8px;
+
+            }
+
+            .homepagesection5-desc {
+                width: 106vw;
+                height: 60px !important;
+
+            }
+
+            .descContainer {
+                > h6 {
+                    font-size: 50px !important;
+                    margin-left: 50px;
+                }
+            }
+
+            .homepagesection5-cards {
+                width: 90vw;
+            }
+
+            .homepagesection5-cards .card__content>figure {
+                padding: 10px;
+            }
+
+            #cards {
+                margin: 0;
+            }
+
+            /* Section 6 */
+            .homepagesection6 {
+                width: 100%;
+                padding-bottom: 50px;
+                contain: paint;
+            }
+
+            .s6bd2 {
+                width: 50px;
+            }
+
+            .s6bd3 {
+                width: 70px;
+            }
+
+            .section6backdrop {
+                width: 200px !important;
+            }
+
+            .homepagesection6 .pinned-content {
+                > p {
+                    width: 40vw;
+                    font-size: 30px !important;
+                }
+            }
+
+            .homepagesection6 .card {
+                height: 24vh;
+                aspect-ratio: 1;
+                object-fit: contain;
+            }
+
+            .homepagesection6 .floatingcontent {
+                gap: 50px;
+
+            }
+        }
+
+        @media screen and (min-device-width: 760px) and (max-device-width: 800px) {
+            body {
+                overflow-x: hidden !important;
+            }
+
+            /* Section 1 */
+            .homepagesection1 {
+                width: 100%;
+                height: 100vh;
+
+                > h1 {
+                    width: 70%;
+                    font-size: 24px !important;
+                    line-height: 1.8em;
+                    padding: 0vw 1vw 0vw 2vw;
+                }
+            }
+
+            .herophoto {
+                width: 80%;
+                font-size: 20px;
+                height: fit-content;
+            }
+
+            .video-heroSection {
+                height: max-content;
+                width: 80vw;
+                padding: 5vh 0;
+                z-index: 99;
+            }
+
+            .herobackdrop1 {
+                top: 45vh;
+                height: 30vh !important;
+            }
+
+            .herobackdrop2-1 {
+                bottom: 0;
+                height: 40vh !important;
+            }
+
+            .img-10x {
+                visibility: hidden;
+                display: none;
+            }
+
+            .Digital-underline {
+                visibility: hidden;
+                display: none;
+            }
+
+            .curve-arrow {
+                visibility: hidden;
+                display: none;
+            }
+
+            /* Section 2 */
+            .homepagesection2 {
+                visibility: collapse !important;
+                display: none;
+            }
+
+            .service-vidM {
+                width: 60.5% !important;
+                margin-top: 4vh !important;
+                margin-left: 7.5vw !important;
+                object-fit: cover;
+            }
+
+            .cards-heading {
+                font-size: clamp(24px, 16px, 900px);
+                font-weight: 600;
+                text-align: center;
+                margin-top: 2vh;
+            }
+
+            .cards-para {
+                font-size: clamp(16px, 12px, 400px);
+                font-weight: 400;
+                text-align: center;
+                width: 375px;
+            }
+
+            /* section-3 */
+            .section-3 {
+                visibility: visible;
+                display: block;
+            }
+
+            .section-3 .cards {
+                width: 70vw;
+                height: 60vh;
+            }
+
+            .section-3 .mobile-animation-cards {
+                padding-top: 0px;
+                justify-content: center;
+            }
+
+            .section-3 .mobile-animation-cards {
+                transform: translateX(135vw);
+            }
+
+            .mobile-page-2 {
+                height: fit-content;
+                margin-top: 0;
+                transform: translateY(0px);
+
+            }
+
+            /* ========================= */
+            /* Section 4 */
+            .tile-tap-icon {
+                position: absolute !important;
+                bottom: -15% !important;
+                left: 0% !important;
+                width: 75px !important;
+                mix-blend-mode: multiply !important;
+                z-index: 99 !important;
+                display: block !important;
+                object-fit: contain !important;
+            }
+
+            .homepagesection4 {
+                width: 100%;
+                padding-bottom: 100px;
+                padding-top: 10px;
+
+                > h2 {
+                    font-size: 60px !important;
+                    font-weight: 400;
+                    padding-block: 25px;
+                    z-index: 99;
+                }
+            }
+
+            .companytilescontainer {
+                align-items: center !important;
+                flex-direction: column;
+            }
+
+            .cursorImage {
+                width: 90vw !important;
+            }
+
+            .tiles {
+                gap: 20px;
+                width: 85vw !important;
+                height: 100px;
+
+                > h5 {
+                    font-size: 12px !important;
+                    opacity: 1;
+                }
+
+                > p {
+                    font-size: 10px !important;
+                    opacity: 1;
+                }
+            }
+
+            .section3backdrop1 {
+                width: 50px !important;
+                z-index: -1;
+            }
+
+            .section3backdrop2 {
+                width: 80px !important;
+                z-index: -1;
+            }
+
+            .black-rings {
+                width: 100px !important;
+                display: none;
+            }
+
+            .experienceImg img {
+                width: 160px !important;
+                z-index: -1;
+                margin-top: -6vh;
+            }
+
+            .cursor-shadow.activetile-1,
+            .cursor-shadow.activetile-2,
+            .cursor-shadow.activetile-3,
+            .cursor-shadow.activetile-4,
+            .cursor-shadow.activetile-5,
+            .cursor-shadow.activetile-6,
+            .cursor-shadow.activetile-7,
+            .cursor-shadow.activetile-8,
+            .cursor-shadow.activetile-9,
+            .cursor-shadow.activetile-10,
+            .cursor-shadow.activetile-11,
+            .cursor-shadow.activetile-12,
+            .cursor-shadow.activetile-13,
+            .cursor-shadow.activetile-14,
+            .cursor-shadow.activetile-15,
+            .cursor-shadow.activetile-16 {
+                --size: 100px;
+                z-index: 9999 !important;
+            }
+
+            /* section 5 */
+            .homepagesection5 {
+                width: 100vw;
+                padding-bottom: 8px;
+
+            }
+
+            .homepagesection5-desc {
+                width: 106vw;
+                height: 60px !important;
+
+            }
+
+            .descContainer {
+                > h6 {
+                    font-size: 50px !important;
+                    margin-left: 50px;
+                }
+            }
+
+            .homepagesection5-cards {
+                width: 90vw;
+            }
+
+            .homepagesection5-cards .card__content>figure {
+                padding: 10px;
+            }
+
+            #cards {
+                margin: 0;
+            }
+
+            /* Section 6 */
+            .homepagesection6 {
+                width: 100%;
+                padding-bottom: 50px;
+                contain: paint;
+            }
+
+            .s6bd2 {
+                width: 50px;
+            }
+
+            .s6bd3 {
+                width: 70px;
+            }
+
+            .section6backdrop {
+                width: 200px !important;
+            }
+
+            .homepagesection6 .pinned-content {
+                > p {
+                    width: 40vw;
+                    font-size: 30px !important;
+                }
+            }
+
+            .homepagesection6 .card {
+                height: 20vh;
+                aspect-ratio: 1;
+                object-fit: contain;
+            }
+
+            .homepagesection6 .floatingcontent {
+                gap: 50px;
+
+            }
+        }
+
+        @media screen and (min-device-width: 800px) and (max-device-width: 1300px) {
+            .homepagesection1 {
+                margin-top: 0;
+            }
+
+            .Digital-underline {
+                visibility: hidden;
+                display: none;
+            }
+
+            .herophoto {
+                width: 80%;
+                font-size: 20px !important;
+                height: fit-content;
+            }
+
+            .video-heroSection {
+                height: max-content;
+                width: 50vw;
+                padding: 5vh 0;
+                z-index: 99;
+            }
+
+            .black-rings {
+                width: 100px !important;
+                display: none;
+            }
+
+            .experienceImg img {
+                width: 160px !important;
+                z-index: -1;
+                margin-top: -6vh;
+            }
+
+            .homepagesection5-desc {
+                width: 106vw;
+            }
+
+            .descContainer {
+                > h6 {
+                    font-size: 50px !important;
+                    margin-left: 50px;
+                }
+            }
+
+            .service-vid {
+                margin-top: 2.5vh !important;
+                margin-bottom: 1vh !important;
+
+                object-fit: cover;
+            }
+        }
+    </style>
+
+    <!-- section 1 -->
+    <section class="homepagesection1">
+
+        <img class="herobackdrop1" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/herobackdrop1.png" />
+        <img class="herobackdrop2-1" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/herobackdrop2-1.png" />
+        <h1>
+
+            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/curve-arrow.png" alt="" class="curve-arrow">
+            <span class="content-10x">
+                <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/10x.png" alt="" class="img-10x"> 10x Your</span>
+            <span class="growth">
+                Growth
+            </span>
+            With India's Leading Digital Marketing Agency
+            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/Digital-underline.png" class="Digital-underline">
+        </h1>
+        <div class="herophoto">
+
+            <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/HOMEPAGE_ITZFIZZVID2_2.mp4" autoplay loop muted
+                class="video-heroSection"></video>
+        </div>
+        <a href="https://itzfizz.typeform.com/to/wXFpOXOH">
+            <button>Get Started</button>
+        </a>
+    </section>
+
+    <!-- Section Infinite Scroll  -->
+    <section class="slider">
+        <div class="slider-content">
+            <h5>Brands we’ve supported</h5>
+        </div>
+        <div class="slide-track">
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003033%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003034%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003035%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003036%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img" src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%20bakery.png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003038%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003040%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003041%20(2).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003042%20(3).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003043%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003044%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003045%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003046%20(2).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003047%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003048%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003049%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003050%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003051%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003060%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003061%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003062%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003063%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003064%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003066%20(1).png"
+                    alt="">
+            </div>
+            <div class="slide">
+                <img class="sliding-img"
+                    src="https://itzfizzdigital.b-cdn.net/Group%201000003050%20(1)/Group%201000003068%20(1).png"
+                    alt="">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 2 -->
+
+    <section class="homepagesection2">
+        <div class="page-1">
+            <img class="page1waves" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/page2waves.png" />
+            <div class="video-container">
+                <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/Homepagevid.mp4" class="vid" autoplay
+                    muted loop></video>
+            </div>
+        </div>
+        <div class="page-2">
+            <div class="background-circle">
+                <div class="animation-cards">
+                    <div class="cards circle">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/UI-UX%20DESIGN.mp4"
+                            autoplay muted loop class="service-vid"></video>
+                        <h3 class="cards-heading">UI/UX Design</h3>
+                        <p class="cards-para">Transform your digital presence with our expert UI/UX design services,
+                            crafting user-friendly interfaces that drive engagement and conversions.</p>
+                    </div>
+                    <div class="cards">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/Web%20development.mp4"
+                            autoplay muted loop class="service-vid"></video>
+                        <h3 class="cards-heading">Web Development</h3>
+                        <p class="cards-para">Build a robust web presence with our custom web development solutions,
+                            delivering high-performance websites that meet your business needs.</p>
+                    </div>
+                    <div class="cards">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/seo_itzfizz.mp4"
+                            autoplay muted loop class="service-vid"></video>
+                        <h3 class="cards-heading">SEO</h3>
+                        <p class="cards-para">Optimize your online presence with our expert SEO services, boosting search
+                            engine rankings and driving more conversions.</p>
+                    </div>
+                    <div class="cards circle">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/branding_itzfizz.mp4"
+                            autoplay muted loop class="service-vid"></video>
+                        <h3 class="cards-heading">Branding</h3>
+                        <p class="cards-para">Establish a strong brand identity with our custom branding solutions,
+                            creating a consistent visual presence that resonates with your target audience.</p>
+                    </div>
+                    <div class="cards">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/Social%20promotion.mp4"
+                            autoplay muted loop class="service-vid"></video>
+                        <h3 class="cards-heading">Social Media Marketing</h3>
+                        <p class="cards-para">Grow your online presence with our expert social media marketing
+                            strategies, creating engaging content and managing campaigns to achieve your social media
+                            goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="section-3">
+        <div class="mobilepage-1">
+            <div class="mobilevideo-container">
+                <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/Homepagevid.mp4" class="vidM" autoplay
+                    muted loop></video>
+            </div>
+        </div>
+        <!--for Mobile version  -->
+        <div class="mobile-page-2">
+
+            <h2 class="bg-yellow-heading"><span class="secondary-heading">We don't just market, We grow.</span><br><span
+                    class="primary-heading">Omnichannel Marketing Services</span></h2>
+            <div class="mobile-background-circle">
+                <div class="mobile-animation-cards">
+                    <div class="cards circle">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/UI-UX%20DESIGN.mp4"
+                            autoplay muted loop class="service-vidM"></video>
+                        <h3 class="cards-heading">UI/UX Design</h3>
+                        <p class="cards-para">Transform your digital presence with our expert UI/UX design services,
+                            crafting user-friendly interfaces that drive engagement and conversions.</p>
+                    </div>
+                    <div class="cards">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/Web%20development.mp4"
+                            autoplay muted loop class="service-vidM"></video>
+                        <h3 class="cards-heading">Web Development</h3>
+                        <p class="cards-para">Build a robust web presence with our custom web development solutions,
+                            delivering high-performance websites that meet your business needs.</p>
+                    </div>
+                    <div class="cards">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/seo_itzfizz.mp4"
+                            autoplay muted loop class="service-vidM"></video>
+                        <h3 class="cards-heading">SEO Services</h3>
+                        <p class="cards-para">Optimize your online presence with our expert SEO services, boosting search
+                            engine rankings and driving more conversions.</p>
+                    </div>
+                    <div class="cards circle">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/branding_itzfizz.mp4"
+                            autoplay muted loop class="service-vidM"></video>
+                        <h3 class="cards-heading">Branding</h3>
+                        <p class="cards-para">Establish a strong brand identity with our custom branding solutions,
+                            creating a consistent visual presence that resonates with your target audience.</p>
+                    </div>
+                    <div class="cards">
+                        <video src="https://itzfizzdigital.b-cdn.net/homepage%20assets/wetransfer_seo_itzfizz-mp4_2024-05-30_1334/Social%20promotion.mp4"
+                            autoplay muted loop class="social-vid"></video>
+                        <h3 class="cards-heading">Social Media Marketing</h3>
+                        <p class="cards-para">Grow your online presence with our expert social media marketing
+                            strategies, creating engaging content and managing campaigns to achieve your social media
+                            goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+
+    <section class="homepagesection4">
+        <h2>
+            3 Years of
+            <img class="black-rings" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/black rings.png" />
+            <span class="experienceImg">
+                experience
+                <img class="experienceImg"
+                    src="https://itzfizzdigital.b-cdn.net/homepage%20assets/experienceImg.png" />
+            </span>
+        </h2>
+        <div class="companytilescontainer">
+            <div class="cursorImage">
+                <div class="tiles tile1">
+                    <video src="https://itzfizzdigital.b-cdn.net/Double%20Click%20Tap.mp4" class="tile-tap-icon"
+                        autoplay loop muted></video>
+                    <h5>Dexwin</h5>
+                    <p>
+                        Enhanced online presence through superior web development,
+                        maintenance, and foundational SEO services
+                    </p>
+                </div>
+                <div class="tiles tile2">
+                    <h5>Tipplr</h5>
+                    <p>
+                        Provided exceptional web development and digital marketing
+                        services, ensuring significant growth within budget constraints
+                    </p>
+                </div>
+                <div class="tiles tile3">
+                    <h5>Lama Design</h5>
+                    <p>
+                        Elevated digital presence with bespoke web development and UI
+                        design, prioritizing an outstanding user experienceImg
+                    </p>
+                </div>
+                <div class="tiles tile4">
+                    <h5>Vakkal</h5>
+                    <p>
+                        Distinguished in the competitive aluminium manufacturing market
+                        with premier web development and videography
+                    </p>
+                </div>
+                <div class="tiles tile5">
+                    <h5>Content whale</h5>
+                    <p>
+                        Developed a content-rich website to showcase their writing
+                        services and enhance client interaction
+                    </p>
+                </div>
+                <div class="tiles tile6">
+                    <h5>Wildleaf</h5>
+                    <p>
+                        Crafted a visually appealing website and digital marketing
+                        strategy for the eco-conscious hemp startup
+                    </p>
+                </div>
+                <div class="tiles tile7">
+                    <h5>Craftsman</h5>
+                    <p>
+                        Collaborated on web development, SEO, and social media management
+                        to boost online visibility and growth
+                    </p>
+                </div>
+                <div class="tiles tile8">
+                    <h5>Crest V Drones</h5>
+                    <p>
+                        Developed brand identity, logo, and website showcasing innovative
+                        drone technology and services
+                    </p>
+                </div>
+            </div>
+            <div class="cursorImage">
+                <div class="tiles tile9">
+                    <h5>Biryanist</h5>
+                    <p>
+                        Implemented SEO strategies to increase visibility and attract more
+                        customers to the Biryani brand
+                    </p>
+                </div>
+                <div class="tiles tile10">
+                    <h5>Pear health</h5>
+                    <p>
+                        Streamlined healthcare navigation with custom web development,
+                        focusing on user-centric design for enhanced client support
+                    </p>
+                </div>
+                <div class="tiles tile11">
+                    <h5>Barkery</h5>
+                    <p>
+                        Created an intuitive e-commerce site for pet products, focusing on
+                        quality and convenience
+                    </p>
+                </div>
+                <div class="tiles tile12">
+                    <h5>Green path</h5>
+                    <p>
+                        Developed an intuitive e-commerce platform for groceries,
+                        featuring a user-friendly interface and efficient checkout process
+                    </p>
+                </div>
+                <div class="tiles tile13">
+                    <h5>Sequins boutique</h5>
+                    <p>
+                        Fashioned a chic website, engaging content, and social media to
+                        highlight their Bollywood collaborations
+                    </p>
+                </div>
+                <div class="tiles tile14">
+                    <h5>Afro-Asian Medicare</h5>
+                    <p>
+                        Designed a cohesive brand and website to simplify access to
+                        comprehensive healthcare services
+                    </p>
+                </div>
+                <div class="tiles tile15">
+                    <h5>Shivamanvi</h5>
+                    <p>
+                        Boosted the DJ's online presence with a vibrant website and
+                        digital marketing for music fans
+                    </p>
+                </div>
+                <div class="tiles tile16">
+                    <h5>UmasFintax</h5>
+                    <p>
+                        Crafted a professional website to detail tax and financial
+                        services, enhancing client engagement
+                    </p>
+                </div>
+            </div>
+        </div>
+        <img class="web" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/web.png" />
+        <img class="section3backdrop1" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/section3backdrop1.png" />
+        <img class="section3backdrop2" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/section3backdrop2.png" />
+    </section>
+    <!-- Page cursor
+          ================================================== -->
+    <div class="cursor cursor-shadow"></div>
+    <div class="cursor cursor-dot"></div>
+
+    <!-- HOMEPAGESECTION 5 -->
+    <section class="homepagesection5">
+        <div class="homepagesection5-desc">
+            <div class="scrollText">
+                <div class="descContainer">
+                    <h6>WHAT WE DO</h6>
+                    <h6>WHAT WE DO</h6>
+                    <h6>WHAT WE DO</h6>
+                </div>
+                <div class="descContainer">
+                    <h6>WHAT WE DO</h6>
+                    <h6>WHAT WE DO</h6>
+                    <h6>WHAT WE DO</h6>
+                </div>
+            </div>
+        </div>
+        <div class="homepagesection5-cards">
+            <ul id="cards">
+                <li class="card" id="card_1">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company1.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_2">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company2.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_3">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company_3.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_4">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company4.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_5">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company5.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_6">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company6.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_7">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company7.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_8">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company8.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_9">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company9.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_10">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company10.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_11">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/company11.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_12">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000003004.png" />
+                        </figure>
+                    </div>
+                </li>
+                <li class="card" id="card_13">
+                    <div class="card__content">
+                        <figure>
+                            <img src="https://itzfizzdigital.b-cdn.net/homepage%20assets/Group%201000003007.png" />
+                        </figure>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Homepage 6 -->
+
+    <section class="homepagesection6">
+        <img class="s6bd2" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/s6bd2.png" />
+        <img class="s6bd3" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/s6bd3.png" />
+
+        <div class="pinned-div">
+            <div class="pinned-content">
+                <p class="section6-text">
+                    Let's see what our valuable customers talk about us, shall we?
+                    <img class="section6backdrop"
+                        src="https://itzfizzdigital.b-cdn.net/homepage%20assets/section6backdrop.png" />
+                </p>
+            </div>
+        </div>
+        <div class="floatingcontent">
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial1.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial2.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial3.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial4.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial5.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial6.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial7.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial8.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial9.png" />
+            <img class="card" src="https://itzfizzdigital.b-cdn.net/homepage%20assets/testimonial10.png" />
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+
+    <script>
+        // Function to detect device type
+        function isMobileDevice() {
+            return window.innerWidth <= 767;
+        }
+
+        // Initialize Locomotive Scroll only on mobile devices
+        if (isMobileDevice()) {
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector('.scroll-container'),
+                smooth: true,
+                getDirection: true
+            });
+
+            // Integrate Locomotive Scroll with GSAP's ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.scrollerProxy(".scroll-container", {
+                scrollTop(value) {
+                    return arguments.length ? scroll.scrollTo(value, 10, 0) : scroll.scroll.instance.scroll.y;
+                },
+                getBoundingClientRect() {
+                    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+                },
+                pinType: document.querySelector(".scroll-container").style.transform ? "transform" : "fixed"
+            });
+
+            ScrollTrigger.addEventListener("refresh", () => scroll.update());
+            ScrollTrigger.refresh();
+        }
+
+        // GSAP Animations
+        gsap.from(".herophoto", {
+            scale: 2,
+            scrollTrigger: {
+                trigger: ".herophoto",
+                // scrub:3,
+            },
+        });
+        gsap.from(".video-heroSection", {
+            scale: 1.3,
+            scrollTrigger: {
+                trigger: ".video-heroSection",
+                scrub: true,
+            },
+        });
+
+        gsap.to(".vid", {
+            width: "70%",
+            scrollTrigger: {
+                trigger: ".video-container",
+                start: "top 90%",
+                end: "top 20%",
+                scrub: 3,
+                // markers: true
+            },
+        });
+        gsap.to(".page-2", {
+            y: 0,
+            x: 0,
+            // marginTop:-100,
+            scrollTrigger: {
+                trigger: ".page-2",
+                scroller: "body",
+                start: "top 10%",
+                scrub: 3,
+                // pin:'.page-1',
+                end: "+=1000px",
+            },
+        });
+        gsap.to(".homepagesection2", {
+            // marginTop:-100,
+            scrollTrigger: {
+                trigger: ".homepagesection2",
+                scroller: "body",
+                start: "top 0%",
+                scrub: 3,
+                // pin:'.homepagesection2',
+                end: "+=500px",
+            },
+        });
+        gsap.to(".mobile-page-2", {
+            y: 0,
+            x: 0,
+            // marginTop:-100,
+            scrollTrigger: {
+                trigger: ".mobile-page-2",
+                scroller: "body",
+                start: "top 0%",
+                scrub: 3,
+                // pin:'.page-1',
+                end: "+=100px",
+            },
+        });
+ 
+        gsap.to(".page-2 .background-circle", {
+      width: 700,
+      height: 700,
+      rotate: 360,
+      // paddingTop:-300,
+      scrollTrigger: {
+        trigger: ".homepagesection2 ",
+        scroller: "body",
+        start: "top 0%",
+        scrub: 3,
+        // pin:'.section',
+        end: "+=2000px",
+      },
+    });
+    
+    gsap.to(".animation-cards", {
+      x: -500,
+    
+      scrollTrigger: {
+        trigger: ".page-2",
+        scroller: "body",
+        start: "top -7.5%",
+        scrub: 2,
+        pin: ".homepagesection2 ",
+        end: "+=3000px",
+      },
+    });
+        gsap.to(".mobile-animation-cards", {
+            x: -600,
+
+            scrollTrigger: {
+                trigger: ".mobile-page-2",
+                start: "top 5%",
+                scrub: 3,
+                pin: ".section-3 ",
+                end: "+=500px",
+            },
+        });
+
+        //HOMEPAGESECTION 6
+
+        gsap.to(".pinned-content", {
+            scale: 2.4,
+            ease: "none",
+            stagger: 0.5,
+            scrollTrigger: {
+                trigger: ".homepagesection6",
+                start: "top center",
+                end: "bottom center",
+                // scrub: true,
+                // markers: true,
+            },
+        });
+
+        // HOMEPAGESECTION 3
+
+        document.addEventListener("mousemove", function(e) {
+            var cursor = document.querySelector(".cursor");
+            cursor.style.left = e.pageX + "px";
+            cursor.style.top = e.pageY + "px";
+        });
+
+        document.querySelectorAll(".cursor-link").forEach(function(link) {
+            link.addEventListener("mouseenter", function() {
+                document.querySelector(".cursor").classList.add("active");
+            });
+            link.addEventListener("mouseleave", function() {
+                document.querySelector(".cursor").classList.remove("active");
+            });
+        });
+
+
+
+        for (let i = 1; i <= 16; i++) {
+            let tile = document.querySelector(`.tile${i}`);
+
+            tile.addEventListener("mouseenter", function() {
+                let cursor = document.querySelector(".cursor");
+                cursor.classList.add(`activetile-${i}`);
+                tile.classList.add("activetile");
+            });
+
+            tile.addEventListener("mouseleave", function() {
+                let cursor = document.querySelector(".cursor");
+                cursor.classList.remove(`activetile-${i}`);
+                tile.classList.remove("activetile");
+
+            });
+        }
+
+        /*;-------------------------------------------------
+                                GSAP
+        -------------------------------------------------;*/
+
+        let tl1 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".homepagesection1",
+                start: "top 0%",
+                // end:"bottom center",
+                scrub: 3,
+                pin: false,
+                //   markers:true,
+                toggleActions: "restart none none reset",
+            },
+        });
+        tl1.to(
+            ".herobackdrop1", {
+                yPercent: -50,
+                ease: "none",
+            },
+            "section-1"
+        );
+        tl1.to(
+            ".herobackdrop2-1", {
+                yPercent: -50,
+                ease: "none",
+            },
+            "section-1"
+        );
+        tl1.to(
+            ".herophoto", {
+                yPercent: 20,
+                ease: "none",
+            },
+            "section-1"
+        );
+
+        let tl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".homepagesection4",
+                start: "top 0%",
+                // end:"bottom center",
+                // markers:true,
+                scrub: 3,
+                pin: false,
+                //   markers:true,
+                toggleActions: "restart none none reset",
+            },
+        });
+        tl2.to(
+            ".experienceImg", {
+                yPercent: 200,
+                ease: "none",
+            },
+            "section-4"
+        );
+        tl2.to(
+            ".section3backdrop1", {
+                yPercent: 400,
+                ease: "none",
+            },
+            "section-4"
+        );
+        tl2.to(
+            ".section3backdrop2", {
+                yPercent: 250,
+                ease: "none",
+            },
+            "section-4"
+        );
+        tl2.to(
+            ".web", {
+                yPercent: -10,
+                ease: "none",
+            },
+            "section-4"
+        );
+    </script>
+
+
+</body>
+
+</html>
